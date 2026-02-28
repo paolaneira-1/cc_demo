@@ -248,35 +248,36 @@ function buildCringe(score) {
   const section = document.getElementById('sectionCringe');
   section.classList.remove('hidden');
 
-  // score 0-100 → 0-5 stars
-  const stars = Math.round(score / 20);
+  const level = Math.min(Math.round(score / 20), 5);
   const labels = ['Tolerable', 'Eyebrow-raising', 'Cringe', 'Very Cringe', 'Peak Cringe', 'Unspeakable'];
-  const emojis = ['😐', '🙄', '😬', '🫠', '💀', '🤮'];
+  const label = labels[level];
 
-  let starsHtml = '';
-  for (let i = 1; i <= 5; i++) {
-    starsHtml += '<span class="cringe-star" data-i="' + i + '">' + emojis[Math.min(i, emojis.length - 1)] + '</span>';
-  }
-
-  const label = labels[Math.min(stars, labels.length - 1)];
   const verdictMap = {
     0: "Shockingly readable.",
     1: "Your LinkedIn could be worse.",
     2: "The thought leadership is showing.",
-    3: "I felt secondhand embarrassment reading this.",
-    4: "This should have been an email. Or a thought. Or nothing.",
+    3: "Felt secondhand embarrassment reading this.",
+    4: "Should have been an email. Or a thought. Or nothing.",
     5: "Delete it. Delete the whole account.",
   };
 
-  cringeContainer.innerHTML =
-    '<div class="cringe-stars">' + starsHtml + '</div>' +
-    '<div class="cringe-label">' + label + '</div>' +
-    '<div class="cringe-verdict">' + escapeHtml(verdictMap[stars] || '') + '</div>';
+  let barsHtml = '';
+  for (let i = 0; i < 5; i++) {
+    barsHtml += '<div class="cringe-bar"></div>';
+  }
 
-  const starEls = cringeContainer.querySelectorAll('.cringe-star');
-  starEls.forEach((el, i) => {
+  cringeContainer.innerHTML =
+    '<div class="cringe-score-row">' +
+      '<span class="cringe-number">' + score + '</span>' +
+      '<span class="cringe-label">' + escapeHtml(label) + '</span>' +
+    '</div>' +
+    '<div class="cringe-bars">' + barsHtml + '</div>' +
+    '<div class="cringe-verdict">' + escapeHtml(verdictMap[level] || '') + '</div>';
+
+  const barEls = cringeContainer.querySelectorAll('.cringe-bar');
+  barEls.forEach((el, i) => {
     setTimeout(() => {
-      if (i < stars) el.classList.add('active');
+      if (i < level) el.classList.add('active');
     }, 200 + i * 100);
   });
 }

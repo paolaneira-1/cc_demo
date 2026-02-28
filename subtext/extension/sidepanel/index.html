@@ -28,7 +28,7 @@
       <textarea
         id="pasteArea"
         class="paste-area"
-        placeholder="Paste corporate speak here... or select text on any page and click the ✦ Subtext button."
+        placeholder="Paste corporate speak here... or select text on any page and click Subtext."
         rows="5"
       ></textarea>
       <button class="analyze-btn" id="analyzeBtn">
@@ -57,7 +57,7 @@
       </div>
 
       <!-- Section 2: BS Score -->
-      <div class="result-section anim-item" id="sectionScore" style="--delay: 120ms">
+      <div class="result-section anim-item" id="sectionScore" style="--delay: 80ms">
         <div class="bs-score-container">
           <div class="bs-score-label">BS SCORE</div>
           <div class="bs-score-display">
@@ -72,11 +72,20 @@
       </div>
 
       <!-- Section 3: One Liner -->
-      <div class="result-section anim-item" id="sectionOneliner" style="--delay: 240ms">
+      <div class="result-section anim-item" id="sectionOneliner" style="--delay: 160ms">
         <div class="one-liner" id="oneLiner"></div>
       </div>
 
-      <!-- Section 4: Translations -->
+      <!-- Section 4: What It Should Have Said (moved up) -->
+      <div class="result-section anim-item" id="sectionRewrite" style="--delay: 240ms">
+        <div class="section-header">
+          <span class="section-title">WHAT IT SHOULD HAVE SAID</span>
+          <span class="section-rule"></span>
+        </div>
+        <div class="honest-rewrite" id="honestRewrite"></div>
+      </div>
+
+      <!-- Section 5: Translations -->
       <div class="result-section anim-item" id="sectionTranslations" style="--delay: 360ms">
         <div class="section-header">
           <span class="section-title">DECODED</span>
@@ -85,7 +94,7 @@
         <div class="translations-list" id="translationsList"></div>
       </div>
 
-      <!-- Section 5: Archetype (investor emails) -->
+      <!-- Section 6: Archetype (investor emails only) -->
       <div class="result-section anim-item hidden" id="sectionArchetype" style="--delay: 480ms">
         <div class="section-header">
           <span class="section-title">ARCHETYPE</span>
@@ -94,7 +103,7 @@
         <div class="archetype-card" id="archetypeCard"></div>
       </div>
 
-      <!-- Section 6: Survival Probability (job postings) -->
+      <!-- Section 7: Survival Probability (job postings only) -->
       <div class="result-section anim-item hidden" id="sectionSurvival" style="--delay: 480ms">
         <div class="section-header">
           <span class="section-title">SURVIVAL PROBABILITY</span>
@@ -103,7 +112,7 @@
         <div class="survival-container" id="survivalContainer"></div>
       </div>
 
-      <!-- Section 7: Cringe Score (LinkedIn) -->
+      <!-- Section 8: Cringe Score (LinkedIn only) -->
       <div class="result-section anim-item hidden" id="sectionCringe" style="--delay: 480ms">
         <div class="section-header">
           <span class="section-title">CRINGE SCORE</span>
@@ -112,17 +121,8 @@
         <div class="cringe-container" id="cringeContainer"></div>
       </div>
 
-      <!-- Section 8: Honest Rewrite -->
-      <div class="result-section anim-item" id="sectionRewrite" style="--delay: 600ms">
-        <div class="section-header">
-          <span class="section-title">WHAT IT SHOULD HAVE SAID</span>
-          <span class="section-rule"></span>
-        </div>
-        <div class="honest-rewrite" id="honestRewrite"></div>
-      </div>
-
       <!-- Section 9: Reply -->
-      <div class="result-section anim-item" id="sectionReply" style="--delay: 720ms">
+      <div class="result-section anim-item" id="sectionReply" style="--delay: 600ms">
         <div class="section-header">
           <span class="section-title">THE REPLY YOU WANT TO SEND</span>
           <span class="section-rule"></span>
@@ -130,7 +130,7 @@
         <div class="chaotic-reply" id="chaoticReply"></div>
         <button class="copy-btn" id="copyReplyBtn">
           <span>Copy</span>
-          <span class="copy-check hidden">Copied ✓</span>
+          <span class="copy-check hidden">Copied</span>
         </button>
       </div>
 
@@ -153,7 +153,7 @@
     <!-- Empty State -->
     <div class="empty-state" id="emptyState">
       <div class="empty-inner">
-        <p class="empty-hint">Highlight any text on a webpage,<br>then click <strong>✦ Subtext</strong></p>
+        <p class="empty-hint">Highlight any text on a webpage,<br>then click <strong>Subtext</strong></p>
         <p class="empty-or">— or paste text above —</p>
       </div>
     </div>

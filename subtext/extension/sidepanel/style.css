@@ -591,35 +591,47 @@ body {
   gap: 10px;
 }
 
-.cringe-stars {
+.cringe-score-row {
   display: flex;
-  gap: 4px;
-  align-items: center;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
-.cringe-star {
-  font-size: 22px;
-  opacity: 0.2;
-  transition: opacity 300ms ease, transform 300ms ease;
-  filter: grayscale(1);
-}
-
-.cringe-star.active {
-  opacity: 1;
-  filter: none;
-  animation: star-pop 300ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-@keyframes star-pop {
-  from { transform: scale(0.5); }
-  to   { transform: scale(1); }
+.cringe-number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent);
 }
 
 .cringe-label {
-  font-family: var(--font-display);
-  font-size: 15px;
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cringe-bars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.cringe-bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bg-warm);
+  transition: background 300ms ease;
+}
+
+.cringe-bar.active {
+  background: var(--accent);
 }
 
 .cringe-verdict {

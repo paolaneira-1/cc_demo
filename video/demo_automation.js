@@ -2,7 +2,7 @@
  * Subtext Demo — Automated Recording Script
  *
  * Drives Chrome with the Subtext extension loaded.
- * Uses real Chrome Profile 18 (paula@spinlink.io) for authentic Gmail.
+ * Uses a copy of Chrome Profile 18 (paula@spinlink.io) for authentic Gmail.
  * ffmpeg records the full screen separately (run record_demo.sh).
  *
  * Scenes:
@@ -10,15 +10,18 @@
  *   2. DoorDash Greenhouse posting — survival probability
  *   3. Honeycomb Greenhouse posting — auto-detected button
  *
- * IMPORTANT: Close Chrome before running this script.
+ * Chrome does NOT need to be closed — the script copies your profile to /tmp.
  */
 
 const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
+const { execSync } = require('child_process');
 
 const EXTENSION_PATH = path.resolve('/Users/paolaneira/Documents/thinking_machines/demo/subtext/extension');
-const CHROME_USER_DATA = '/Users/paolaneira/Library/Application Support/Google/Chrome';
+const CHROME_SRC_DATA  = '/Users/paolaneira/Library/Application Support/Google/Chrome';
+const CHROME_SRC_PROFILE = 'Profile 18'; // paula@spinlink.io
+const CHROME_TEMP_DATA = '/tmp/subtext-chrome-demo';
 const CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const GMAIL_SEARCH = 'https://mail.google.com/mail/u/0/#search/Luminary+rooting';
 
@@ -65,6 +68,26 @@ async function selectTextAndTrigger(page, selector) {
   });
 }
 
+// Copy Profile 18 into a fresh temp Chrome user-data-dir as "Default".
+// This lets Chrome stay open while the demo runs — we never touch the real profile.
+function copyProfileToTemp() {
+  const src = `${CHROME_SRC_DATA}/${CHROME_SRC_PROFILE}`;
+  const dst = `${CHROME_TEMP_DATA}/Default`;
+
+  console.log(`Copying Chrome profile to ${CHROME_TEMP_DATA} ...`);
+  execSync(`rm -rf "${CHROME_TEMP_DATA}"`);
+  execSync(`mkdir -p "${CHROME_TEMP_DATA}"`);
+
+  // "Local State" holds account info Chrome needs to recognise the profile
+  const localState = `${CHROME_SRC_DATA}/Local State`;
+  if (fs.existsSync(localState)) {
+    execSync(`cp "${localState}" "${CHROME_TEMP_DATA}/Local State"`);
+  }
+
+  execSync(`cp -r "${src}" "${dst}"`);
+  console.log('  Profile copy done.\n');
+}
+
 async function waitForSubtextButton(page, timeout = 8000) {
   try {
     await page.waitForSelector('#subtext-floating-btn, .subtext-site-btn', { timeout });
@@ -75,14 +98,15 @@ async function waitForSubtextButton(page, timeout = 8000) {
 }
 
 async function run() {
-  console.log('Launching Chrome with Subtext extension (Profile: paula@spinlink.io)...');
-  console.log('NOTE: Chrome must be closed before running this script.\n');
+  copyProfileToTemp();
 
-  const context = await chromium.launchPersistentContext(CHROME_USER_DATA, {
+  console.log('Launching Chrome with Subtext extension (Profile: paula@spinlink.io)...');
+
+  const context = await chromium.launchPersistentContext(CHROME_TEMP_DATA, {
     headless: false,
     executablePath: CHROME_EXECUTABLE,
     args: [
-      '--profile-directory=Profile 18',
+      '--profile-directory=Default',
       `--disable-extensions-except=${EXTENSION_PATH}`,
       `--load-extension=${EXTENSION_PATH}`,
       '--window-size=1280,900',
@@ -250,7 +274,10 @@ async function run() {
   console.log('\nDemo sequence complete. Closing in 3s...');
   await sleep(3000);
   await context.close();
-  console.log('Done.');
+
+  // Clean up temp profile copy
+  execSync(`rm -rf "${CHROME_TEMP_DATA}"`);
+  console.log('Done. Temp profile cleaned up.');
 }
 
 run().catch(err => {
