@@ -1,0 +1,58 @@
+[
+  {
+    "id": "thesis-collector",
+    "name": "The Thesis Collector",
+    "description": "Attends every pitch event, requests every deck, takes every call. Has a beautifully curated folder of companies they will never invest in. You are a data point in their understanding of the market, and they are grateful for the contribution.",
+    "signature_phrase": "We're really excited about the space — would love to stay close as you build.",
+    "actual_behaviour": "Shares the deck with their team, writes two sentences in their market memo, and files you under 'consumer wellness / interesting but not for us.' Reaches out 18 months later when you announce a raise with someone else."
+  },
+  {
+    "id": "fomo-investor",
+    "name": "The FOMO Investor",
+    "description": "Passed three times. Now that Benchmark is leading the round, they want to co-invest. Their conviction is a derivative of other people's conviction, and they are self-aware enough about this that they've started calling it 'collaborative due diligence.'",
+    "signature_phrase": "We've been following you for a while — who else is in the round?",
+    "actual_behaviour": "Emails you the morning after your TechCrunch article asking if there's still room in the round. There is not. They will attend your launch party."
+  },
+  {
+    "id": "data-vampire",
+    "name": "The Data Vampire",
+    "description": "Does not invest. Researches. Every meeting produces a new list of metrics they'd like to see before they can 'get conviction.' They have been getting conviction for eleven months. It is always almost there.",
+    "signature_phrase": "Love what you're building — could you send over your cohort retention, LTV/CAC by channel, and a breakdown of revenue by customer segment?",
+    "actual_behaviour": "Receives the data. Thanks you. Goes quiet for three weeks. Returns with four more questions. Repeat until you close your round without them or run out of runway."
+  },
+  {
+    "id": "name-dropper",
+    "name": "The Name Dropper",
+    "description": "Passes with such enthusiasm and such a thorough list of warm introductions that you almost feel good about it. They have made an art form of the constructive no. The intros are real, but they have never checked if those funds are actively investing.",
+    "signature_phrase": "You should really talk to Roelof at Sequoia — I think this is right in his wheelhouse. I'd be happy to make an intro.",
+    "actual_behaviour": "Sends a lukewarm two-line intro email that says 'founder is doing interesting things in [space], thought you might want to chat.' Does not follow up. The intro sits in Roelof's assistant's inbox."
+  },
+  {
+    "id": "traction-hostage-taker",
+    "name": "The Traction Hostage-Taker",
+    "description": "Has a number in their head that would make them invest, but the number moves every quarter. This is not dishonesty — it is the genuine psychology of de-risking. Unfortunately the mechanism is identical to stringing you along, and the outcome is the same.",
+    "signature_phrase": "When you're at $50k MRR with three enterprise logos, we'd love to revisit.",
+    "actual_behaviour": "You hit $50k MRR. They say they'd love to see $100k MRR. You hit $100k. They say the valuation has moved and they'd want to see more enterprise. You raise from someone else. They tweet about you and say they've been watching."
+  },
+  {
+    "id": "conflict-invoker",
+    "name": "The Conflict Invoker",
+    "description": "Always has a conflict. The conflict is never named. It is simply invoked — a structural impediment, a prior commitment, a portfolio company doing something adjacent. They will not say who. The conflict may or may not exist. The pass is real either way.",
+    "signature_phrase": "We have a conflict in the space — this isn't a reflection of the quality of what you're building.",
+    "actual_behaviour": "The conflict is often a company that has raised $200k and has four users. But because it's a portfolio company, you are now a competitive threat to something that barely exists. They will not help you find the right investor."
+  },
+  {
+    "id": "valuation-negotiator",
+    "name": "The Valuation Negotiator",
+    "description": "Loves the business. Has said so three times. The only obstacle is the number you chose. They will not tell you what number they would invest at. They will tell you that the market has 'compressed' and that you should be 'founder-friendly' on terms, which means: smaller number for them.",
+    "signature_phrase": "We're struggling to get comfortable with the valuation at this stage — have you considered coming in a bit lower?",
+    "actual_behaviour": "If you lower your valuation, they will invest at the lower number and tell their LPs they negotiated well. If you don't, they will pass and tell their LPs the founder was 'not market-aware.' Either way they write the story."
+  },
+  {
+    "id": "eternal-encourager",
+    "name": "The Eternal Encourager",
+    "description": "The kindest investor you will ever meet, and you will never receive a check from them. Their emails are warm, their feedback is thoughtful, and they genuinely want you to succeed. They are routing for you from a great distance, with no capital involved.",
+    "signature_phrase": "Really rooting for you — keep me posted on how things develop.",
+    "actual_behaviour": "Reads every update email. Replies to two of them. Attends your launch event. Likes your funding announcement on LinkedIn with a fire emoji. Invests in a company doing something similar six months later because the founder went to Stanford with their co-founder."
+  }
+]

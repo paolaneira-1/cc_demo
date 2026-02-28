@@ -1,0 +1,260 @@
+[
+  {
+    "phrase": "we're really excited about the space",
+    "translation": "we passed. this is the pass.",
+    "category": "investor-email",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "doesn't map perfectly to our current thesis",
+    "translation": "we don't understand it and we're not going to try",
+    "category": "investor-email",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "love to stay in touch as things evolve",
+    "translation": "never contact me again unless you're raising at a higher valuation",
+    "category": "investor-email",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "we'd love to revisit once you have more traction",
+    "translation": "once you don't need us, come back and we'll pretend we were always interested",
+    "category": "investor-email",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "the valuation is a stretch for us at this stage",
+    "translation": "we want 3x the equity for the same check. halve your ask.",
+    "category": "investor-email",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "we have a conflict in the space",
+    "translation": "we funded your competitor and we're not telling you who",
+    "category": "investor-email",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "I'd encourage you to look at [other fund]",
+    "translation": "I'm ending this email now",
+    "category": "investor-email",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "can you send over your updated metrics, cohort data, and customer case studies",
+    "translation": "we are absolutely not investing but we would love your data",
+    "category": "investor-email",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "let's keep the conversation going",
+    "translation": "I will not initiate contact again in my lifetime",
+    "category": "investor-email",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "really rooting for you",
+    "translation": "goodbye",
+    "category": "investor-email",
+    "severity": "mild"
+  },
+  {
+    "phrase": "put you on the agenda for our Monday meeting",
+    "translation": "you will hear from us when the sun expands and swallows the earth",
+    "category": "investor-email",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "I sincerely mean that",
+    "translation": "I know how this sounds",
+    "category": "investor-email",
+    "severity": "mild"
+  },
+  {
+    "phrase": "competitive salary",
+    "translation": "$15k–$25k below market rate",
+    "category": "job-posting",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "wear many hats",
+    "translation": "we have a headcount of one for a job that needs five people",
+    "category": "job-posting",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "build from scratch",
+    "translation": "there is no strategy, no budget, and no one to ask for help",
+    "category": "job-posting",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "scrappy",
+    "translation": "we will not give you the tools you need",
+    "category": "job-posting",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "comfortable with ambiguity",
+    "translation": "leadership has no idea what they want from this role",
+    "category": "job-posting",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "high-performance team",
+    "translation": "we will email you at 11pm and expect a reply",
+    "category": "job-posting",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "we work hard and play hard",
+    "translation": "the playing hard is mandatory and the working hard is non-optional",
+    "category": "job-posting",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "not a 9-to-5",
+    "translation": "we will regard your personal boundaries as a performance issue",
+    "category": "job-posting",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "unlimited PTO",
+    "translation": "you will be shamed for taking any",
+    "category": "job-posting",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "equity",
+    "translation": "a number that sounds impressive until you read the cap table",
+    "category": "job-posting",
+    "severity": "mild"
+  },
+  {
+    "phrase": "meaningful equity",
+    "translation": "0.05%",
+    "category": "job-posting",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "salary: DOE",
+    "translation": "we have not decided what this role is worth and we are hoping you'll tell us first",
+    "category": "job-posting",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "opportunity to make a real impact",
+    "translation": "we cannot compete on compensation",
+    "category": "job-posting",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "must love dogs (or have a sense of humor)",
+    "translation": "our founders have very strong personalities and this is your only warning",
+    "category": "job-posting",
+    "severity": "mild"
+  },
+  {
+    "phrase": "executive presence",
+    "translation": "we don't know why we're not promoting you but it's definitely something about you",
+    "category": "performance-review",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "meets expectations",
+    "translation": "you will not be getting a raise",
+    "category": "performance-review",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "visibility across the organization",
+    "translation": "be more visible to the people who decide your promotion, specifically the men at the top",
+    "category": "performance-review",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "strategic thinking",
+    "translation": "we want you to do your manager's job for free to prove you deserve your own",
+    "category": "performance-review",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "we look forward to seeing her continue to grow",
+    "translation": "we have nothing specific to say and this review is over",
+    "category": "performance-review",
+    "severity": "mild"
+  },
+  {
+    "phrase": "3% merit increase",
+    "translation": "we just gave you a pay cut in real terms. congrats.",
+    "category": "performance-review",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "60-day development plan",
+    "translation": "we are building a paper trail to fire you",
+    "category": "performance-review",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "positive intent is not in question",
+    "translation": "everything else absolutely is",
+    "category": "performance-review",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "we remain hopeful",
+    "translation": "we do not",
+    "category": "performance-review",
+    "severity": "nuclear"
+  },
+  {
+    "phrase": "I almost turned it down",
+    "translation": "I am about to tell you something that makes me look excellent",
+    "category": "linkedin-post",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "I failed",
+    "translation": "buckle up, this ends with a new title announcement",
+    "category": "linkedin-post",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "had coffee with a 22-year-old founder",
+    "translation": "I am the main character of this story and they exist to receive my wisdom",
+    "category": "linkedin-post",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "my DMs are open",
+    "translation": "please validate this post",
+    "category": "linkedin-post",
+    "severity": "mild"
+  },
+  {
+    "phrase": "building in stealth",
+    "translation": "we are not ready to tell you what we do because we don't fully know yet",
+    "category": "linkedin-post",
+    "severity": "mild"
+  },
+  {
+    "phrase": "who are you going to be honest with today",
+    "translation": "please engage with this post so the algorithm sees it",
+    "category": "linkedin-post",
+    "severity": "spicy"
+  },
+  {
+    "phrase": "rest is a competitive advantage (I really believe this)",
+    "translation": "I slept four hours last night",
+    "category": "linkedin-post",
+    "severity": "mild"
+  },
+  {
+    "phrase": "blessed",
+    "translation": "I ran out of words but needed one more line",
+    "category": "linkedin-post",
+    "severity": "mild"
+  }
+]

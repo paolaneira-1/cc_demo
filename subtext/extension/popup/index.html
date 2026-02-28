@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subtext</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="popup">
+
+    <!-- Logo -->
+    <div class="logo-section">
+      <div class="logo">
+        <svg class="logo-mark" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="22" height="22" rx="5" fill="#8B7355"/>
+          <line x1="4.5" y1="7.5"  x2="17.5" y2="7.5"  stroke="#F5F0E8" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="4.5" y1="11"   x2="17.5" y2="11"   stroke="#F5F0E8" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="4.5" y1="14.5" x2="11"   y2="14.5" stroke="#F5F0E8" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 2"/>
+        </svg>
+        <span class="logo-text">SUBTEXT</span>
+      </div>
+      <p class="tagline">Read between the lines</p>
+    </div>
+
+    <!-- No API Key State -->
+    <div class="state-block" id="stateNoKey">
+      <div class="state-icon">🔑</div>
+      <p class="state-msg">Set up your API key to get started</p>
+      <button class="btn btn-primary" id="goToOptions">
+        Set up API key →
+      </button>
+    </div>
+
+    <!-- Has API Key State -->
+    <div class="state-block hidden" id="stateReady">
+      <div class="instructions">
+        <div class="instruction-step">
+          <span class="step-num">1</span>
+          <span class="step-text">Select text on any page</span>
+        </div>
+        <div class="instruction-step">
+          <span class="step-num">2</span>
+          <span class="step-text">Click <strong>✦ Subtext</strong></span>
+        </div>
+        <div class="instruction-step">
+          <span class="step-num">3</span>
+          <span class="step-text">Watch the truth emerge</span>
+        </div>
+      </div>
+      <button class="btn btn-panel" id="openPanel">
+        Open side panel
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <button class="footer-link" id="footerSettings">Settings</button>
+    </footer>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

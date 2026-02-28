@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subtext — Settings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg class="logo-mark" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="22" height="22" rx="5" fill="#8B7355"/>
+          <line x1="4.5" y1="7.5"  x2="17.5" y2="7.5"  stroke="#F5F0E8" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="4.5" y1="11"   x2="17.5" y2="11"   stroke="#F5F0E8" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="4.5" y1="14.5" x2="11"   y2="14.5" stroke="#F5F0E8" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="2.5 2"/>
+        </svg>
+        <span class="logo-text">SUBTEXT</span>
+      </div>
+      <p class="header-sub">Settings</p>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="section-heading">What is Subtext?</h2>
+        <p class="about-text">
+          Subtext is a BS translator for corporate language. It reads investor emails,
+          job postings, LinkedIn posts, and performance reviews — then tells you what
+          they actually mean.
+        </p>
+        <p class="about-text">
+          It uses Claude AI to decode the doublespeak, calculate a BS score, and serve
+          up the honest rewrite you deserved in the first place.
+        </p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- API Key -->
+      <section class="key-section">
+        <h2 class="section-heading">Anthropic API Key</h2>
+        <p class="key-description">
+          Subtext runs on Claude. You'll need an API key from Anthropic.
+          Keys are stored locally in your browser — they never leave your machine.
+        </p>
+
+        <div class="key-field">
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="apiKeyInput"
+              class="api-input"
+              placeholder="sk-ant-api03-..."
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+            />
+            <button class="show-hide-btn" id="showHideBtn" title="Show/hide key">
+              <span class="eye-show" id="eyeShow">
+                <!-- Eye icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </span>
+              <span class="eye-hide hidden" id="eyeHide">
+                <!-- Eye-off icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                  <line x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <div class="key-actions">
+            <button class="save-btn" id="saveBtn">Save key</button>
+            <button class="clear-btn hidden" id="clearBtn">Remove</button>
+          </div>
+        </div>
+
+        <!-- Status message -->
+        <div class="status-msg hidden" id="statusMsg"></div>
+
+        <!-- Key status indicator -->
+        <div class="key-status" id="keyStatus"></div>
+
+        <p class="get-key-hint">
+          Don't have a key?
+          <a
+            href="https://console.anthropic.com/account/keys"
+            target="_blank"
+            class="link"
+            id="getKeyLink"
+          >Get one at console.anthropic.com →</a>
+        </p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- How it works -->
+      <section class="how-section">
+        <h2 class="section-heading">How it works</h2>
+        <ol class="how-list">
+          <li>Select any text on a webpage — an email, a job posting, a LinkedIn post</li>
+          <li>Click the <strong class="highlight">✦ Subtext</strong> button that appears</li>
+          <li>The side panel opens and analyzes the text with Claude</li>
+          <li>Get a BS score, decoded translations, the honest rewrite, and the reply you actually want to send</li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

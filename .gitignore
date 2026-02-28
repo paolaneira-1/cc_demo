@@ -1,0 +1,15 @@
+# API keys - never commit
+video/.env
+
+# Generated video files (large binaries)
+video/*.mp4
+video/*.aiff
+
+# Node dependencies
+video/node_modules/
+
+# macOS
+.DS_Store
+
+# Claude settings
+.claude/

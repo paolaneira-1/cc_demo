@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inbox - Gmail</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f6f8fc; color: #202124; }
+  .topbar { background: #fff; padding: 10px 20px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid #e0e0e0; }
+  .topbar .logo { font-size: 22px; color: #5f6368; font-weight: 300; letter-spacing: -0.5px; }
+  .topbar .logo span { color: #4285f4; }
+  .layout { display: flex; height: calc(100vh - 57px); }
+  .sidebar { width: 256px; padding: 8px; background: #fff; border-right: 1px solid #e0e0e0; }
+  .sidebar .compose { background: #c2e7ff; border-radius: 16px; padding: 16px 24px; font-size: 14px; font-weight: 500; margin-bottom: 8px; cursor: pointer; display: flex; align-items: center; gap: 12px; }
+  .sidebar-item { padding: 8px 16px; border-radius: 0 16px 16px 0; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 16px; }
+  .sidebar-item.active { background: #d3e3fd; font-weight: 600; }
+  .main { flex: 1; overflow: auto; background: #fff; }
+  .thread-header { padding: 20px 32px 8px; }
+  .thread-header h1 { font-size: 22px; font-weight: 400; margin-bottom: 4px; }
+  .email-container { margin: 0 32px 24px; border: 1px solid #e0e0e0; border-radius: 8px; }
+  .email-header { padding: 16px 20px 8px; border-bottom: 1px solid #f1f3f4; }
+  .sender-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; background: #1a73e8; color: white; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; flex-shrink: 0; }
+  .sender-info .name { font-size: 14px; font-weight: 500; }
+  .sender-info .address { font-size: 12px; color: #5f6368; }
+  .date { margin-left: auto; font-size: 12px; color: #5f6368; }
+  .email-body { padding: 20px; font-size: 14px; line-height: 1.8; color: #202124; max-width: 680px; }
+  .email-body p { margin-bottom: 14px; }
+  .sig { color: #5f6368; font-size: 13px; border-top: 1px solid #f1f3f4; margin-top: 8px; padding-top: 12px; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo">G<span>m</span>ail</div>
+</div>
+<div class="layout">
+  <div class="sidebar">
+    <div class="compose">+ Compose</div>
+    <div class="sidebar-item active">Inbox <span style="margin-left:auto;font-size:12px;font-weight:600">3</span></div>
+    <div class="sidebar-item">Starred</div>
+    <div class="sidebar-item">Sent</div>
+    <div class="sidebar-item">Drafts</div>
+  </div>
+  <div class="main">
+    <div class="thread-header">
+      <h1>Re: Luminary - follow-up from our call</h1>
+    </div>
+    <div class="email-container">
+      <div class="email-header">
+        <div class="sender-row">
+          <div class="avatar">M</div>
+          <div class="sender-info">
+            <div class="name">Marcus Holt</div>
+            <div class="address">marcus@firstlightventures.com</div>
+          </div>
+          <div class="date">Thu, Feb 27, 10:14 AM</div>
+        </div>
+        <div style="font-size:12px;color:#5f6368;padding-left:52px">to me</div>
+      </div>
+      <div class="email-body" id="email-body">
+        <p>Hi Sarah,</p>
+        <p>Thank you so much for taking the time to share Luminary with us — we really enjoyed learning about what you're building. The space you're operating in is genuinely exciting, and it's clear you and your team have deep domain expertise.</p>
+        <p>That said, after careful consideration, we've decided not to move forward at this stage. We're really focused right now on earlier-stage bets in infrastructure, and consumer wellness doesn't map perfectly to our current thesis. That said, I'd love to stay in touch as things evolve — would you be open to keeping me posted on future rounds?</p>
+        <p>Really rooting for you.</p>
+        <div class="sig">
+          Marcus Holt<br>
+          Partner, First Light Ventures<br>
+          marcus@firstlightventures.com
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+{
+  "investor_emails": [
+    {
+      "id": "ie-001",
+      "label": "The Classic Pass Disguised as Enthusiasm",
+      "text": "Hi Sarah,\n\nThank you so much for taking the time to share Luminary with us — we really enjoyed learning about what you're building. The space you're operating in is genuinely exciting, and it's clear you and your team have deep domain expertise.\n\nThat said, after careful consideration, we've decided not to move forward at this stage. We're really focused right now on earlier-stage bets in infrastructure, and consumer wellness doesn't map perfectly to our current thesis. That said, I'd love to stay in touch as things evolve — would you be open to keeping me posted on future rounds?\n\nReally rooting for you,\nMarcus"
+    },
+    {
+      "id": "ie-002",
+      "label": "The 'Not Enough Traction' Ghost",
+      "text": "Hey Priya,\n\nGreat catching up at the conference last week! I've been thinking about Kova since our chat. The product is genuinely impressive and I can see the vision.\n\nWe'd want to see a bit more traction before we can get conviction — specifically, we'd love to revisit once you've hit $50k MRR and have a few more enterprise logos. When you're there, please do reach back out. The team here would love to dig in more seriously.\n\nKeep building!\nJameson"
+    },
+    {
+      "id": "ie-003",
+      "label": "The 'We're Already In' Letdown",
+      "text": "Hi Elena,\n\nThank you for sharing the deck for Slate — really impressive work. The market timing feels right and the problem is clearly real.\n\nUnfortunately, we have a conflict: we're currently invested in a company that's operating in an adjacent space, and our fund has strict policies around portfolio conflicts. This one is genuinely a timing issue for us and not a reflection of the quality of what you're building. I'd encourage you to look at Sequoia and Benchmark — I think they'd be really receptive.\n\nBest of luck — I mean that sincerely.\nChris Lau\nPartner, Redwood Ventures"
+    },
+    {
+      "id": "ie-004",
+      "label": "The Eternal 'Let's Keep the Conversation Going'",
+      "text": "Hi Amara,\n\nSo sorry for the slow reply — Q4 has been absolutely relentless. I wanted to follow up on our call.\n\nWe're still very much engaged and interested in what you're building with Kernal. I shared it internally and got some great feedback. We'd love to schedule another call with our full partnership — could you send over an updated deck along with your latest MRR, cohort retention data, and any customer case studies you have? Once we have that, we can put you on the agenda for our next Monday meeting.\n\nExcited to keep the conversation going.\nTaylor"
+    },
+    {
+      "id": "ie-005",
+      "label": "The 'Valuation is the Problem' Redirect",
+      "text": "Hi Nadia,\n\nReally appreciate you keeping us in the loop on Forma. We've been following along and the growth trajectory is genuinely impressive.\n\nHere's where we landed: we love the business but we're struggling to get comfortable with the valuation at this stage. A $12M pre at $180k ARR is a stretch for us given where the market is right now. We'd encourage you to consider coming in at a slightly lower number — it might open up more options for you. If you do revisit the terms, we'd love to re-engage.\n\nWishing you all the best with the raise.\nDaniel Stein\nHorizon Capital"
+    }
+  ],
+
+  "job_postings": [
+    {
+      "id": "jp-001",
+      "label": "The Classic Startup Hustle Trap",
+      "text": "Head of Marketing — Series A Startup (Remote-Friendly)\n\nAbout us: We're a fast-moving, venture-backed startup changing the way businesses think about procurement. We've got strong PMF, a passionate team of 12, and we're growing fast.\n\nThe role: We're looking for a Head of Marketing who can own the full funnel — from brand to demand gen to content to comms to events. You'll build the function from scratch, which means you get to do things your way.\n\nWhat you bring:\n- 7+ years of B2B marketing experience\n- Startup experience required — you're comfortable with ambiguity\n- Strong bias toward action\n- You're scrappy, strategic, and don't need hand-holding\n- Experience managing agencies and external vendors\n\nWhat we offer:\n- Competitive salary\n- Meaningful equity\n- Unlimited PTO\n- The opportunity to make a real impact\n\nNote: This is not a role for someone who needs a lot of resources or support. You'll be doing and thinking."
+    },
+    {
+      "id": "jp-002",
+      "label": "The 'Unicorn Individual Contributor'",
+      "text": "Product Manager — Growth (NYC or Remote)\n\nWe're looking for a PM who can sit at the intersection of product, data, engineering, and design. The ideal candidate has a strong technical background but also loves talking to customers. You'll be driving roadmap decisions while also writing SQL, running A/B tests, managing stakeholder communication, and helping our founders think through go-to-market strategy.\n\nRequired:\n- 5+ years PM experience at a high-growth tech company\n- Data fluency (SQL required, Python preferred)\n- Experience with Figma and comfort doing light design work\n- Strong communication skills\n- Previous experience as a founder is a plus\n\nSalary range: $95,000 — $115,000\nEquity: 0.05% — 0.15%\n\nWe're building something special here and we want people who care about the mission, not just the paycheck."
+    },
+    {
+      "id": "jp-003",
+      "label": "The Culture Fit Warning Sign",
+      "text": "Customer Success Manager — SaaS, Series B\n\nAbout the role:\nWe're looking for a Customer Success Manager who is obsessed with making customers successful. You'll own a book of business, manage renewals, drive expansion, and work cross-functionally with product and sales.\n\nOur culture:\nWe're a high-performance team. We work hard and we play hard. We have a weekly all-hands where everyone is expected to share a win. We celebrate hustle. If you're the type of person who works until the job is done (even if that means evenings and weekends), you'll fit right in.\n\nWhat we're NOT looking for:\nWe're not looking for someone who clocks out at 5pm. This isn't a 9-to-5. We want people who are all-in.\n\nBenefits:\n- Health insurance (employee only, dependents not covered)\n- In-office snacks and cold brew\n- Salary: DOE\n\nIf this sounds like you, send us your resume and a note about a time you went above and beyond for a customer."
+    },
+    {
+      "id": "jp-004",
+      "label": "The Unpaid Expertise Extraction",
+      "text": "Strategy Advisor / Founding Team Member — Pre-Seed\n\nWe're an early-stage startup in the climate tech space looking for a Head of Strategy to join as a founding team member. This is an equity-only role while we close our seed round (targeting Q1). Once funded, this converts to a full-time paid position.\n\nWhat you'll do:\n- Help define and refine our go-to-market strategy\n- Advise on pricing and positioning\n- Connect us with potential customers, investors, and partners\n- Attend weekly team meetings and be available for ad hoc calls\n\nIdeal background:\n- Ex-McKinsey, BCG, or similar\n- Experience in climate, energy, or sustainability\n- Strong network in the startup ecosystem\n\nEquity: 0.25% — 0.5% (vesting TBD)\n\nThis is a rare opportunity to get in on the ground floor of something that could be huge."
+    },
+    {
+      "id": "jp-005",
+      "label": "The VP Title, IC Budget",
+      "text": "VP of Sales — B2B SaaS\n\nWe are looking for a VP of Sales to lead our go-to-market motion as we prepare to scale. You will be our first dedicated sales hire and will own the entire revenue function.\n\nResponsibilities:\n- Build and execute our sales playbook from zero\n- Manage the full sales cycle from prospecting to close\n- Hit a $1.2M ARR target in Year 1\n- Eventually hire and manage a team (budget to be discussed based on performance)\n- Report directly to the CEO\n\nRequirements:\n- 10+ years of B2B SaaS sales, including enterprise\n- Proven track record of building sales teams\n- Rolodex of contacts in [our target industry]\n- Low ego, hands-on, happy to be in the weeds\n\nCompensation:\n- Base: $120,000\n- OTE: $180,000 (uncapped)\n- Equity: 0.1% — 0.3%\n\nWe are a lean team and move fast. No room for politics."
+    }
+  ],
+
+  "linkedin_posts": [
+    {
+      "id": "lp-001",
+      "label": "The Humble Brag Disguised as Gratitude",
+      "text": "I almost turned it down.\n\nThree months ago, I got an email from the team at [Top Tier VC] asking if I'd be interested in joining their portfolio advisory council.\n\nMy first instinct was to say no. I'm busy. I have a company to run. I told myself I didn't need another commitment.\n\nBut something stopped me.\n\nMaybe it was curiosity. Maybe it was fear of missing out. Maybe it was the reminder that growth happens outside your comfort zone.\n\nI said yes.\n\nAnd over the past 90 days, I've had conversations with 40+ founders across 12 countries. I've learned more than I did in the previous five years.\n\nThe lesson? Don't say no to the room. Say yes, figure it out, and be useful.\n\nIf you're an early-stage founder who wants to connect, my DMs are open.\n\n#startups #founders #venturecapital #growth #leadership"
+    },
+    {
+      "id": "lp-002",
+      "label": "The Fake Vulnerability / Rebrand Announcement",
+      "text": "Last year, I failed.\n\nI'm not talking about a small stumble. I'm talking about shutting down something I spent three years building, telling a team I loved that we were out of money, and sitting in my car outside the office at 10pm wondering what came next.\n\nIt was the hardest thing I've ever done.\n\nBut here's the thing about failure: it teaches you everything success never could.\n\nToday, I'm announcing that I've joined Meridian Partners as Chief Revenue Officer.\n\nI'm stepping into this role with more clarity, more humility, and more hunger than I've ever had.\n\nThank you to everyone who reached out during the hard months. You know who you are.\n\nNow let's get back to work.\n\n💪\n\n#resilience #leadership #startups #newoportunity #CRO #blessed"
+    },
+    {
+      "id": "lp-003",
+      "label": "The Unsolicited Life Lesson",
+      "text": "I had coffee with a 22-year-old founder yesterday.\n\nShe asked me what advice I'd give her.\n\nI told her the truth:\n\nStop optimizing for looking smart. Start optimizing for being useful.\nStop waiting for permission. Nobody is coming.\nStop networking. Start building relationships.\nYour biggest competitor isn't another startup. It's your own doubt.\n\nShe sat there quietly for a moment.\n\nThen she said: \"I needed to hear that.\"\n\nSometimes the most valuable thing you can offer someone isn't a warm intro or an investment. It's honesty.\n\nWho are you going to be honest with today?\n\n#mentorship #founder #leadership #mindset #startup #advice"
+    },
+    {
+      "id": "lp-004",
+      "label": "The Engagement Bait Announcement",
+      "text": "Big news.\n\nAfter 18 months of building in stealth, we're finally ready to share what we've been working on at Kova.\n\nWe're not ready to talk details yet — but I can say this:\n\n🔥 The problem is real\n🔥 The team is exceptional\n🔥 The timing has never been better\n\nIf you work in [broad industry], stay tuned.\n\nAnd if you're a world-class [engineer/designer/operator] who wants to work on something that matters — my inbox is open.\n\nMore soon. 🚀\n\n#stealth #startups #building #announcement #excited #hiring"
+    },
+    {
+      "id": "lp-005",
+      "label": "The Metric Drop With No Context",
+      "text": "We just crossed $1M ARR.\n\nI started this company 26 months ago with a Google Doc and a Stripe account.\n\nNo VC money. No co-founder. No press coverage.\n\nJust an idea I couldn't stop thinking about, and a stubbornness that probably drives my wife insane.\n\n$0 → $1M. Bootstrapped.\n\nHere's what I learned:\n- Sales solves most problems\n- Hire slow, fire fast\n- The best marketing is a product people actually want\n- Rest is a competitive advantage (I really believe this)\n\nThank you to every customer who took a bet on us when we were just a Notion page and a Loom video.\n\nWe're just getting started.\n\n#bootstrapped #saas #milestones #founder #entrepreneurship #grateful"
+    }
+  ],
+
+  "performance_reviews": [
+    {
+      "id": "pr-001",
+      "label": "The Promotion-Proof Non-Feedback",
+      "text": "Overall Assessment: Meets Expectations\n\nJamila has had a productive year and continues to be a reliable member of the team. She consistently delivers her work on time and demonstrates a strong understanding of her functional area.\n\nStrengths: Jamila is dependable and takes ownership of her responsibilities. She has built good relationships with her immediate team and brings a positive attitude to team meetings.\n\nAreas for Development: As Jamila looks toward growth opportunities, she should focus on increasing her executive presence and visibility across the organization. She would benefit from proactively seeking opportunities to contribute beyond her current scope and demonstrating more strategic thinking in her day-to-day work.\n\nGoals for Next Year: Jamila should work on expanding her internal network, taking on at least one cross-functional initiative, and developing a stronger point of view on the broader business.\n\nManager Summary: Jamila is a valued team member. We look forward to seeing her continue to grow."
+    },
+    {
+      "id": "pr-002",
+      "label": "The Star Performer Who Gets Nothing",
+      "text": "Overall Assessment: Exceeds Expectations\n\nThis has been an exceptional year for Marcus. He led the migration of our core infrastructure, delivered the Q3 platform launch two weeks ahead of schedule, and mentored two junior engineers through their onboarding. His technical depth and reliability make him one of the most impactful engineers on the team.\n\nStrengths: Marcus combines deep technical expertise with a collaborative working style. He has become a go-to resource for the team and consistently goes above and beyond his defined scope.\n\nCompensation Review: After careful consideration of internal equity and market benchmarks, we are pleased to offer Marcus a 3% merit increase, bringing his total compensation to $127,600. We recognize Marcus's contributions and look forward to his continued growth.\n\nGoals for Next Year: Marcus should continue his excellent work and begin to take on more technical leadership responsibilities as we scale the engineering organization."
+    },
+    {
+      "id": "pr-003",
+      "label": "The Managed-Out Disguised as Coaching",
+      "text": "Overall Assessment: Partially Meets Expectations\n\nOver the course of this review period, we have observed both strengths and areas requiring significant improvement in Rachel's performance. Rachel brings enthusiasm and a genuine commitment to her work, and her positive intent is not in question.\n\nAreas for Development: Rachel has struggled with meeting deadlines consistently and has at times had difficulty prioritizing effectively under pressure. There have been instances where communication with cross-functional partners could have been more proactive, leading to misaligned expectations. We have discussed these themes in our 1:1s and Rachel is aware of the expectations going forward.\n\nPerformance Improvement: Starting in Q1, Rachel will participate in a structured 60-day development plan. This plan will outline specific, measurable goals and include bi-weekly check-ins with her manager and an HR business partner.\n\nManager Summary: We remain hopeful that Rachel will take this feedback as an opportunity to reset and demonstrate her capability. We are committed to supporting her through this process."
+    }
+  ]
+}
