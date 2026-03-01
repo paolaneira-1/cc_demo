@@ -191,30 +191,33 @@ async function run() {
   const browser = await chromium.connectOverCDP(CDP_URL);
   const context = browser.contexts()[0];
 
-  // Inject API key into Subtext extension via service worker
+  // Inject API key via the extension's options page (chrome.storage is available there).
+  // Get the extension ID from the service worker URL.
   console.log('Injecting API key into Subtext...');
-  await sleep(3000); // give extension time to register service worker
+  await sleep(4000); // give extension time to register service worker
 
-  let worker = null;
-  const existing = context.serviceWorkers();
-  if (existing.length > 0) {
-    worker = existing[0];
-  } else {
-    try {
-      worker = await context.waitForEvent('serviceworker', { timeout: 10000 });
-    } catch {
-      console.warn('  Service worker not detected — key may already be set in profile.');
-      await sleep(2000);
-      const ws = context.serviceWorkers();
-      if (ws.length > 0) worker = ws[0];
-    }
+  let extensionId = null;
+  const workers = context.serviceWorkers();
+  if (workers.length > 0) {
+    const m = workers[0].url().match(/chrome-extension:\/\/([a-z0-9]+)\//);
+    if (m) extensionId = m[1];
   }
 
-  if (worker) {
-    await worker.evaluate((key) => {
-      chrome.storage.sync.set({ apiKey: key });
-    }, ANTHROPIC_KEY);
-    console.log('  API key set.');
+  if (extensionId) {
+    const extPage = await context.newPage();
+    try {
+      await extPage.goto(`chrome-extension://${extensionId}/options/options.html`, { waitUntil: 'domcontentloaded' });
+      await extPage.evaluate((key) => {
+        return new Promise(resolve => chrome.storage.sync.set({ apiKey: key }, resolve));
+      }, ANTHROPIC_KEY);
+      console.log(`  API key set via options page (ext: ${extensionId}).`);
+    } catch (e) {
+      console.warn('  Options page injection failed:', e.message);
+    } finally {
+      await extPage.close();
+    }
+  } else {
+    console.warn('  Extension not detected — API key may already be set in profile.');
   }
 
   await sleep(1000);
@@ -249,14 +252,7 @@ async function run() {
     await sleep(800);
     await siteBtn.click();
   } else {
-    console.log('  Selecting text manually...');
-    const desc = page.locator('#content, .job-post, #app_body, .job-post-description').first();
-    const descText = await desc.innerText().catch(() => '');
-    if (descText.length > 100) {
-      await page.evaluate((t) => {
-        chrome.runtime.sendMessage({ type: 'ANALYZE_TEXT', text: t });
-      }, descText.slice(0, 1500));
-    }
+    console.warn('  Subtext button not found on DoorDash — content script may not have injected.');
   }
 
   console.log('  Waiting for analysis... (~20s)');
