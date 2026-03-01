@@ -270,8 +270,13 @@ async function run() {
   await sleep(3000);
 
   chromeProcess.kill();
-  execSync(`rm -rf "${CHROME_TEMP_DATA}"`);
-  console.log('Done. Temp profile cleaned up.');
+  await sleep(2000); // give Chrome time to release file locks
+  try {
+    execSync(`rm -rf "${CHROME_TEMP_DATA}"`);
+    console.log('Done. Temp profile cleaned up.');
+  } catch {
+    console.warn('Could not clean up temp profile — run: sudo rm -rf /tmp/subtext-chrome-demo');
+  }
 }
 
 run().catch(err => {
