@@ -15,13 +15,9 @@
 
 const { chromium } = require('playwright');
 const path = require('path');
-const fs = require('fs');
-const { execSync } = require('child_process');
 
 const EXTENSION_PATH = path.resolve('/Users/paolaneira/Documents/thinking_machines/demo/subtext/extension');
-const CHROME_SRC_DATA  = '/Users/paolaneira/Library/Application Support/Google/Chrome';
-const CHROME_SRC_PROFILE = 'Profile 18'; // paula@spinlink.io
-const CHROME_TEMP_DATA = '/tmp/subtext-chrome-demo';
+const CHROME_USER_DATA = '/Users/paolaneira/Library/Application Support/Google/Chrome';
 const CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 // Search terms unique enough to find exactly one email in paula@spinlink.io.
@@ -71,25 +67,6 @@ async function selectTextAndTrigger(page, selector) {
   });
 }
 
-// Copy Profile 18 into a fresh temp Chrome user-data-dir as "Default".
-// This lets Chrome stay open while the demo runs — we never touch the real profile.
-function copyProfileToTemp() {
-  const src = `${CHROME_SRC_DATA}/${CHROME_SRC_PROFILE}`;
-  const dst = `${CHROME_TEMP_DATA}/Default`;
-
-  console.log(`Copying Chrome profile to ${CHROME_TEMP_DATA} ...`);
-  execSync(`rm -rf "${CHROME_TEMP_DATA}"`);
-  execSync(`mkdir -p "${CHROME_TEMP_DATA}"`);
-
-  // "Local State" holds account info Chrome needs to recognise the profile
-  const localState = `${CHROME_SRC_DATA}/Local State`;
-  if (fs.existsSync(localState)) {
-    execSync(`cp "${localState}" "${CHROME_TEMP_DATA}/Local State"`);
-  }
-
-  execSync(`cp -r "${src}" "${dst}"`);
-  console.log('  Profile copy done.\n');
-}
 
 async function waitForSubtextButton(page, timeout = 8000) {
   try {
@@ -149,15 +126,14 @@ async function runGmailScene(page, label, searchUrl) {
 }
 
 async function run() {
-  copyProfileToTemp();
+  console.log('Launching Chrome on Profile 18 (paula@spinlink.io)...');
+  console.log('NOTE: Chrome must be fully quit (Cmd+Q) before running.\n');
 
-  console.log('Launching Chrome with Subtext extension (Profile: paula@spinlink.io)...');
-
-  const context = await chromium.launchPersistentContext(CHROME_TEMP_DATA, {
+  const context = await chromium.launchPersistentContext(CHROME_USER_DATA, {
     headless: false,
     executablePath: CHROME_EXECUTABLE,
     args: [
-      '--profile-directory=Default',
+      '--profile-directory=Profile 18',
       `--disable-extensions-except=${EXTENSION_PATH}`,
       `--load-extension=${EXTENSION_PATH}`,
       '--window-size=1280,900',
@@ -253,9 +229,7 @@ async function run() {
   await sleep(3000);
   await context.close();
 
-  // Clean up temp profile copy
-  execSync(`rm -rf "${CHROME_TEMP_DATA}"`);
-  console.log('Done. Temp profile cleaned up.');
+  console.log('Done.');
 }
 
 run().catch(err => {

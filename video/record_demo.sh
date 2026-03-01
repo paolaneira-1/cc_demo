@@ -28,10 +28,13 @@ echo "============================================"
 echo ""
 
 # ----------------------------------------------------------------
-# Step 0: Clean up any stale temp profile from a previous run
+# Step 0: Confirm Chrome is not running
 # ----------------------------------------------------------------
-echo "Step 0: Clearing stale temp Chrome profile (if any)..."
-rm -rf /tmp/subtext-chrome-demo
+if pgrep -x "Google Chrome" > /dev/null; then
+  echo "ERROR: Chrome is running. Quit Chrome (Cmd+Q) then re-run this script."
+  exit 1
+fi
+echo "Step 0: Chrome not running — good."
 echo ""
 
 # ----------------------------------------------------------------
