@@ -226,7 +226,7 @@ async function run() {
   if (extensionId) {
     const extPage = await context.newPage();
     try {
-      await extPage.goto(`chrome-extension://${extensionId}/options/options.html`, { waitUntil: 'domcontentloaded' });
+      await extPage.goto(`chrome-extension://${extensionId}/options/index.html`, { waitUntil: 'domcontentloaded' });
       await extPage.evaluate((key) => {
         return new Promise(resolve => chrome.storage.sync.set({ apiKey: key }, resolve));
       }, ANTHROPIC_KEY);
@@ -289,6 +289,7 @@ async function run() {
   console.log('\nDemo sequence complete. Closing in 3s...');
   await sleep(3000);
 
+  await page.close();
   chromeProcess.kill();
   await sleep(2000); // give Chrome time to release file locks
   try {
