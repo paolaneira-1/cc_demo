@@ -46,6 +46,7 @@ echo ""
 ffmpeg \
   -f avfoundation \
   -framerate 30 \
+  -pixel_format uyvy422 \
   -i "3:none" \
   -vcodec libx264 \
   -preset ultrafast \

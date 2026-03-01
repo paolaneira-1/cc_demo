@@ -191,6 +191,26 @@ async function run() {
   const browser = await chromium.connectOverCDP(CDP_URL);
   const context = browser.contexts()[0];
 
+  // Dismiss "This profile will be managed" dialog if present.
+  // It appears on Google Workspace accounts and blocks everything until clicked.
+  console.log('Checking for managed profile dialog...');
+  await sleep(2000);
+  try {
+    const pages = context.pages();
+    for (const p of pages) {
+      try {
+        const btn = p.getByRole('button', { name: 'Continue' });
+        await btn.waitFor({ timeout: 3000 });
+        await btn.click();
+        console.log('  Managed profile dialog dismissed.');
+        await sleep(1500);
+        break;
+      } catch { /* not on this page */ }
+    }
+  } catch (e) {
+    console.log('  No managed profile dialog found — continuing.');
+  }
+
   // Inject API key via the extension's options page (chrome.storage is available there).
   // Get the extension ID from the service worker URL.
   console.log('Injecting API key into Subtext...');
