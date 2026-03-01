@@ -21,7 +21,7 @@ const { execSync, spawn } = require('child_process');
 
 const EXTENSION_PATH = path.resolve('/Users/paolaneira/Documents/thinking_machines/demo/subtext/extension');
 const CHROME_SRC_DATA  = '/Users/paolaneira/Library/Application Support/Google/Chrome';
-const CHROME_SRC_PROFILE = 'Profile 18'; // paula@spinlink.io
+const CHROME_SRC_PROFILE = 'Profile 19'; // paula@spinlink.io
 const CHROME_TEMP_DATA = '/tmp/subtext-chrome-demo';
 const CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const CDP_URL = 'http://localhost:9222';
