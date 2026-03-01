@@ -6,9 +6,9 @@
  * ffmpeg records the full screen separately (run record_demo.sh).
  *
  * Scenes:
- *   1. Real Gmail (paula@spinlink.io) — Marcus Holt investor email
- *   2. DoorDash Greenhouse posting — survival probability
- *   3. Honeycomb Greenhouse posting — auto-detected button
+ *   1. Gmail — performance review from manager (Jordan Ellis)
+ *   2. Gmail — investor passing on the round (Alex Chen / Peak Ventures)
+ *   3. DoorDash Greenhouse job posting — survival probability
  *
  * Chrome does NOT need to be closed — the script copies your profile to /tmp.
  */
@@ -23,7 +23,11 @@ const CHROME_SRC_DATA  = '/Users/paolaneira/Library/Application Support/Google/C
 const CHROME_SRC_PROFILE = 'Profile 18'; // paula@spinlink.io
 const CHROME_TEMP_DATA = '/tmp/subtext-chrome-demo';
 const CHROME_EXECUTABLE = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const GMAIL_SEARCH = 'https://mail.google.com/mail/u/0/#search/Luminary+rooting';
+
+// Search terms unique enough to find exactly one email in paula@spinlink.io.
+// Update these if you change the email subject lines.
+const GMAIL_SEARCH_PERF     = 'https://mail.google.com/mail/u/0/#search/subject%3A(H1+Feedback+Path+Forward)';
+const GMAIL_SEARCH_INVESTOR = 'https://mail.google.com/mail/u/0/#search/subject%3A(Spinlink+Following+up)';
 
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 if (!ANTHROPIC_KEY) {
@@ -31,8 +35,7 @@ if (!ANTHROPIC_KEY) {
   process.exit(1);
 }
 
-const GREENHOUSE_1 = 'https://boards.greenhouse.io/doordashusa/jobs/6786292';
-const GREENHOUSE_2 = 'https://boards.greenhouse.io/honeycomb/jobs/4916426008';
+const GREENHOUSE_DOORDASH = 'https://boards.greenhouse.io/doordashusa/jobs/6786292';
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -97,6 +100,54 @@ async function waitForSubtextButton(page, timeout = 8000) {
   }
 }
 
+// Open a Gmail search, click the first result, then trigger Subtext on it.
+async function runGmailScene(page, label, searchUrl) {
+  console.log(`\nSCENE: Gmail — ${label}`);
+
+  await page.goto(searchUrl, { waitUntil: 'domcontentloaded' });
+  await sleep(5000); // Gmail takes a moment to render search results
+
+  const emailRow = page.locator('tr.zA').first();
+  try {
+    await emailRow.waitFor({ timeout: 10000 });
+    console.log('  Email found — clicking to open...');
+    await emailRow.click();
+  } catch (e) {
+    console.warn('  Email row not found, trying alternative selector...');
+    try {
+      await page.locator('[role="main"] [role="row"]').first().click();
+    } catch (e2) {
+      console.error('  Could not find email. Check that it exists in paula@spinlink.io.');
+    }
+  }
+
+  await sleep(3000); // Wait for email thread to load fully
+
+  const btnFound = await waitForSubtextButton(page, 12000);
+  if (btnFound) {
+    console.log('  Subtext button detected — clicking...');
+    const siteBtn = page.locator('.subtext-site-btn').first();
+    await siteBtn.scrollIntoViewIfNeeded();
+    await sleep(800);
+    await siteBtn.click();
+  } else {
+    // Fallback: select email body text manually
+    console.log('  Auto-detect button not found — selecting text manually...');
+    await selectTextAndTrigger(page, '.a3s.aiL');
+    await sleep(500);
+    const floatBtn = await waitForSubtextButton(page, 5000);
+    if (floatBtn) {
+      await page.locator('#subtext-floating-btn').first().click();
+    }
+  }
+
+  console.log('  Waiting for analysis... (~20s)');
+  await sleep(22000);
+
+  await smoothScroll(page, 400, 2500);
+  await sleep(3000);
+}
+
 async function run() {
   copyProfileToTemp();
 
@@ -146,69 +197,30 @@ async function run() {
 
   await sleep(1000);
 
-  // ----------------------------------------------------------------
-  // SCENE 1: Real Gmail — Marcus Holt investor email
-  // ----------------------------------------------------------------
-  console.log('\nSCENE 1: Gmail — searching for Marcus Holt email...');
   const page = await context.newPage();
 
-  await page.goto(GMAIL_SEARCH, { waitUntil: 'domcontentloaded' });
-  await sleep(5000); // Gmail takes a moment to load search results
-
-  // Click the first email in search results
-  const emailRow = page.locator('tr.zA').first();
-  try {
-    await emailRow.waitFor({ timeout: 10000 });
-    console.log('  Email found in Gmail — clicking to open...');
-    await emailRow.click();
-  } catch (e) {
-    console.warn('  Email row not found, trying alternative selector...');
-    try {
-      await page.locator('[role="main"] [role="row"]').first().click();
-    } catch (e2) {
-      console.error('  Could not find email in Gmail. Is the Marcus email in paula@spinlink.io?');
-    }
-  }
-
-  await sleep(3000); // Wait for email to open fully
-
-  // Content script auto-detects Gmail and injects "Subtext this email" button
-  const btn1 = await waitForSubtextButton(page, 12000);
-  if (btn1) {
-    console.log('  Subtext button detected on Gmail email — clicking...');
-    const siteBtn = page.locator('.subtext-site-btn').first();
-    await siteBtn.scrollIntoViewIfNeeded();
-    await sleep(800);
-    await siteBtn.click();
-  } else {
-    // Fallback: select email body text manually
-    console.log('  Auto-detect button not found — selecting text manually...');
-    await selectTextAndTrigger(page, '.a3s.aiL');
-    await sleep(500);
-    const floatBtn = await waitForSubtextButton(page, 5000);
-    if (floatBtn) {
-      await page.locator('#subtext-floating-btn').first().click();
-    }
-  }
-
-  console.log('  Waiting for analysis... (~20s)');
-  await sleep(22000);
-
-  await smoothScroll(page, 400, 2500);
-  await sleep(3000);
+  // ----------------------------------------------------------------
+  // SCENE 1: Performance review email from manager
+  // ----------------------------------------------------------------
+  await runGmailScene(page, 'performance review (Jordan Ellis)', GMAIL_SEARCH_PERF);
 
   // ----------------------------------------------------------------
-  // SCENE 2: DoorDash Greenhouse posting
+  // SCENE 2: Investor passing on the round
   // ----------------------------------------------------------------
-  console.log('\nSCENE 2: DoorDash Greenhouse job posting...');
-  await page.goto(GREENHOUSE_1, { waitUntil: 'domcontentloaded' });
+  await runGmailScene(page, 'investor pass (Alex Chen / Peak Ventures)', GMAIL_SEARCH_INVESTOR);
+
+  // ----------------------------------------------------------------
+  // SCENE 3: DoorDash Greenhouse job posting — survival probability
+  // ----------------------------------------------------------------
+  console.log('\nSCENE 3: DoorDash Greenhouse job posting...');
+  await page.goto(GREENHOUSE_DOORDASH, { waitUntil: 'domcontentloaded' });
   await sleep(3000);
 
   await smoothScroll(page, 400, 2000);
   await sleep(1500);
 
-  const btn2 = await waitForSubtextButton(page, 10000);
-  if (btn2) {
+  const btn3 = await waitForSubtextButton(page, 10000);
+  if (btn3) {
     console.log('  Auto-detected Subtext button — clicking...');
     const siteBtn = page.locator('.subtext-site-btn').first();
     await siteBtn.scrollIntoViewIfNeeded();
@@ -229,42 +241,8 @@ async function run() {
   await sleep(22000);
 
   await smoothScroll(page, 500, 2500);
-  await sleep(4000);
 
-  // ----------------------------------------------------------------
-  // SCENE 3: Honeycomb Greenhouse posting
-  // ----------------------------------------------------------------
-  console.log('\nSCENE 3: Honeycomb Greenhouse job posting...');
-  await page.goto(GREENHOUSE_2, { waitUntil: 'domcontentloaded' });
-  await sleep(3000);
-
-  await smoothScroll(page, 400, 2000);
-  await sleep(1500);
-
-  const btn3 = await waitForSubtextButton(page, 10000);
-  if (btn3) {
-    console.log('  Auto-detected Subtext button — clicking...');
-    const siteBtn = page.locator('.subtext-site-btn').first();
-    await siteBtn.scrollIntoViewIfNeeded();
-    await sleep(800);
-    await siteBtn.click();
-  } else {
-    console.log('  Selecting text manually...');
-    const desc = page.locator('#content, .job-post, #app_body').first();
-    const descText = await desc.innerText().catch(() => '');
-    if (descText.length > 100) {
-      await page.evaluate((t) => {
-        chrome.runtime.sendMessage({ type: 'ANALYZE_TEXT', text: t });
-      }, descText.slice(0, 1500));
-    }
-  }
-
-  console.log('  Waiting for analysis... (~20s)');
-  await sleep(22000);
-
-  await smoothScroll(page, 500, 2500);
-
-  // Hold on scene 3 results while voiceover finishes real-world use cases (~55s)
+  // Hold on results while voiceover finishes real-world use cases section
   console.log('  Holding on results for voiceover use-cases section...');
   await sleep(60000);
 

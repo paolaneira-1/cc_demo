@@ -1,0 +1,70 @@
+Ever wanted to filter out the corporate BS?
+
+The performance review that said "reset moment" and meant you are going on a PIP.
+The investor who said "market timing" and meant pass.
+The job posting that said "fast-paced environment" and meant understaffed and chaotic.
+
+Introducing Subtext. A Chrome extension that reads between the lines.
+
+[BEAT 1 - PERFORMANCE REVIEW EMAIL]
+
+This is a manager feedback email. Warm opener. Then a 60-day alignment plan.
+
+Subtext gives it a BS score and breaks it down phrase by phrase.
+
+"This is a reset moment for both of us." Translation: you are going on a performance
+improvement plan and we both know it.
+
+The honest rewrite cuts it to one sentence. And yes — it writes the reply you actually
+wanted to send.
+
+[BEAT 2 - INVESTOR PASS EMAIL]
+
+Now an investor rejection. Every VC pass follows the same structure. Compliment the team.
+Blame the portfolio. End with "stay in touch."
+
+Subtext reads the archetype instantly.
+
+"The metrics aren't quite where we need them to be." Translation: we do not believe
+in this yet.
+
+"Would love to reconnect when you hit your milestones." Translation: please do not
+reach out again.
+
+[BEAT 3 - DOORDASH JOB POSTING]
+
+DoorDash. No job is beneath you. Work hard and play hard.
+
+Survival probability: twenty-two percent.
+
+No job is beneath you means: we will ask you to do things that are beneath you,
+constantly, and act surprised when you quit.
+
+Health insurance, employee only, dependents not covered. The cold brew in the fridge
+is what they offer instead.
+
+[REAL WORLD USE CASES]
+
+Here is why this matters.
+
+Twenty-eight percent of US workers are actively looking for a new job right now. More
+than a quarter of all job postings contain at least one red-flag phrase -- up from
+eighteen percent just eight years ago. Every one of those people is trying to decode
+what the posting actually means.
+
+The average founder pitches fifty-eight investors to close one seed round. VCs fund
+about one percent of what they see. Almost none of the rejections explain why. Founders
+spend weeks interpreting emails instead of improving their pitch.
+
+Ninety-five percent of managers say they are frustrated with their own review systems.
+Half of all feedback is not actionable. Only fourteen percent say performance reviews
+actually motivate anyone to improve.
+
+Subtext works anywhere there is text. Gmail, job boards, LinkedIn, Slack. Any page,
+any text, one click.
+
+[OUTRO]
+
+It is not mean. It is just accurate.
+
+Subtext. Read between the lines.

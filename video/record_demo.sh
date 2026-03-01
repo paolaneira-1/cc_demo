@@ -28,19 +28,10 @@ echo "============================================"
 echo ""
 
 # ----------------------------------------------------------------
-# Step 0: Start local HTTP server for investor_email.html
-# (Chrome extensions can't inject into file:// URLs by default)
+# Step 0: Clean up any stale temp profile from a previous run
 # ----------------------------------------------------------------
-echo "Step 0: Clearing stale Playwright profile..."
-rm -rf /tmp/subtext-demo-profile
-echo ""
-
-echo "Step 0b: Starting local HTTP server on port 8765..."
-python3 -m http.server 8765 --directory "$VIDEO_DIR" \
-  >/tmp/http_server.log 2>&1 &
-HTTP_PID=$!
-sleep 1
-echo "HTTP server started (PID: $HTTP_PID)"
+echo "Step 0: Clearing stale temp Chrome profile (if any)..."
+rm -rf /tmp/subtext-chrome-demo
 echo ""
 
 # ----------------------------------------------------------------
@@ -77,9 +68,8 @@ cd "$VIDEO_DIR"
 ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" node demo_automation.js
 
 echo ""
-echo "Step 3: Stopping screen recording and HTTP server..."
+echo "Step 3: Stopping screen recording..."
 kill $FFMPEG_PID 2>/dev/null || true
-kill $HTTP_PID 2>/dev/null || true
 # Wait for ffmpeg to finish writing
 sleep 2
 
@@ -89,13 +79,12 @@ sleep 2
 echo ""
 echo "Step 4: Combining video + voiceover..."
 
-if [ ! -f "$VOICEOVER" ]; then
-  echo "Voiceover not found, generating with ElevenLabs (Sarah voice)..."
-  VOICEOVER_TEXT=$(sed '/^\[BEAT/d; /^\[REAL WORLD/d; /^\[OUTRO/d' \
-    "$VIDEO_DIR/../voiceover_script_v2.txt" | \
-    tr '\n' ' ' | sed 's/  */ /g; s/^ //; s/ $//')
+echo "Generating voiceover with ElevenLabs (Sarah voice, script v3)..."
+VOICEOVER_TEXT=$(sed '/^\[BEAT/d; /^\[REAL WORLD/d; /^\[OUTRO/d' \
+  "$VIDEO_DIR/../voiceover_script_v3.txt" | \
+  tr '\n' ' ' | sed 's/  */ /g; s/^ //; s/ $//')
 
-  python3 -c "
+python3 -c "
 import json, sys
 text = sys.stdin.read().strip()
 payload = {
@@ -110,14 +99,13 @@ payload = {
 }
 print(json.dumps(payload))
 " <<< "$VOICEOVER_TEXT" | \
-  curl -s -X POST "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL" \
-    -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
-    -H "Content-Type: application/json" \
-    -H "Accept: audio/mpeg" \
-    -d @- \
-    -o "$VOICEOVER"
-  echo "Voiceover generated."
-fi
+curl -s -X POST "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL" \
+  -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
+  -H "Content-Type: application/json" \
+  -H "Accept: audio/mpeg" \
+  -d @- \
+  -o "$VOICEOVER"
+echo "Voiceover generated: $VOICEOVER"
 
 # ----------------------------------------------------------------
 # Step 5: Combine video + voiceover
