@@ -11,6 +11,12 @@ VOICEOVER="$VIDEO_DIR/voiceover_draft.mp3"
 AVATAR_VIDEO="$VIDEO_DIR/avatar_video.mp4"
 FINAL_VIDEO="$VIDEO_DIR/subtext_demo_final.mp4"
 
+# Automation script — override with DEMO_AUTOMATION env var for /demo command
+AUTOMATION_SCRIPT="${DEMO_AUTOMATION:-$VIDEO_DIR/demo_automation.js}"
+
+# Voiceover script — override with DEMO_SCRIPT env var for /demo command
+VOICEOVER_SCRIPT="${DEMO_SCRIPT:-$VIDEO_DIR/../voiceover_script_v3.txt}"
+
 # Avatar: Alyssa, red suit, lobby — best professional female presenter
 DID_PRESENTER="v2_public_Alyssa_NoHands_RedSuite_Lobby@qtzjxMSwEa"
 
@@ -80,7 +86,8 @@ sleep 2
 echo "Step 2: Running demo automation..."
 echo ""
 cd "$VIDEO_DIR"
-ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" node demo_automation.js
+echo "  Using automation: $AUTOMATION_SCRIPT"
+ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY" node "$AUTOMATION_SCRIPT"
 
 echo ""
 echo "Step 3: Stopping screen recording..."
@@ -100,7 +107,7 @@ else
   echo "Generating voiceover with ElevenLabs (Sarah voice, script v3)..."
   VOICEOVER_TEXT=$(sed \
     's/^\[BEAT[^]]*\]/<break time="1.5s"\/>/; s/^\[OUTRO\]/<break time="1.5s"\/>/; /^\[REAL WORLD/d' \
-    "$VIDEO_DIR/../voiceover_script_v3.txt" | \
+    "$VOICEOVER_SCRIPT" | \
     tr '\n' ' ' | sed 's/  */ /g; s/^ //; s/ $//')
   VOICEOVER_TEXT="<speak>${VOICEOVER_TEXT}</speak>"
 
