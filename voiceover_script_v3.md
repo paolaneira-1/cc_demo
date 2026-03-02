@@ -14,7 +14,7 @@ Introducing Subtext. A Chrome extension that reads between the lines.
 
 ## Beat 1 — Performance Review Email
 
-*(1.5s silence)*
+_(1.5s silence)_
 
 This is a manager feedback email. Warm opener. Then a 60-day alignment plan.
 
@@ -30,9 +30,9 @@ actually means.
 
 ## Beat 2 — Investor Pass Email
 
-*(1.5s silence)*
+_(1.5s silence)_
 
-Now an investor rejection. Peak Ventures, passing after a first call.
+Now an investor rejection. Pass Ventures, passing after a first call.
 
 Every VC pass follows the same structure. Compliment the team. Blame the portfolio.
 End with "stay in touch."
@@ -45,13 +45,15 @@ moment it reads the subject line.
 And this line from the decoded section: "You seem smart, but smart doesn't write
 checks."
 
+_(1.5s silence)_
+
 Subtext works on more than email. Point it at any job posting.
 
 ---
 
 ## Beat 3 — DoorDash Job Posting
 
-*(1.5s silence)*
+_(1.5s silence)_
 
 DoorDash. Manager, Marketplace, New Bets, Strategy and Operations. The title alone
 is doing a lot of work.
@@ -62,7 +64,7 @@ Subtext is reading every word right now.
 
 ## Outro
 
-*(1.5s silence)*
+_(1.5s silence)_
 
 72 percent. Startup grind, corporate pay ceiling, manager title doing founder work.
 
@@ -80,5 +82,7 @@ recorder.
 
 For our company that means client education, sales demos, and product walkthroughs -
 built automatically, any time something ships.
+
+_(1.5s silence)_
 
 Point it at code. Get a video.

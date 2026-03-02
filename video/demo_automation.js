@@ -369,8 +369,9 @@ async function run() {
     }
   })();
 
-  // Hold on scene 1 through Beat 1. Subtext clicked at ~t=16s. Already waited
-  // 22s → now at t=38s. Beat 1 ends at t=51.5s (silence-detected) → need ~12s more (+ 1s smoothScroll).
+  // Hold on scene 1 through Beat 1. Subtext clicked at ~t=14s. Already waited
+  // 22s → now at t=36s. Beat 1 ends at t=52.1s (silence-detected) → need ~15s more (+ 1s smoothScroll).
+  // Targeting scene 2 switch at video_t≈49s (5s before Beat 2 narration at 54.3s).
   console.log('  Scrolling side panel...');
   await scrollSidePanel(context);
   console.log('  Holding on scene 1 through Beat 1... (~12s, targeting t=51.5s)');
@@ -419,11 +420,15 @@ async function run() {
     }
   })();
 
-  // Hold scene 2 through Beat 2 + bridge line.
-  // Silence-detected: Beat 3 starts at t=86s. Scene 2 switches at t=51.5s.
-  // Hold = 86 - 51.5 = 34.5s. Overhead ~2s + 1s scroll = 3s. sleep ≈ 31s. +2s per review.
-  console.log('  Showing scene 2... (~33s through Beat 2 + bridge, targeting t=86s)');
-  await sleep(33000);
+  // Hold scene 2 through Beat 2.
+  // Silence-detected:
+  //   inline break (before bridge) = 87.5s, bridge ends = 93.3s, Beat 3 = 94.9s.
+  // Switch at t≈86s (during the inline break) so:
+  //   - viewer sees DoorDash as "Point it at any job posting" plays (89-93s) ✓
+  //   - Subtext triggers at 86s → results at ~104s → 3.9s before outro "72 percent" at 107.9s ✓
+  // Hold = 86 - 49 = 37s. Minus ~1.5s overhead (scroll) = 35.5s → sleep(35500).
+  console.log('  Showing scene 2... (~35.5s through Beat 2, targeting scene 3 at t≈86s)');
+  await sleep(35500);
   await smoothScroll(scene2Page, 200, 1000);
 
   // ── SCENE 3: Switch then trigger Subtext ─────────────────────────────────────

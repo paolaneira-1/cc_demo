@@ -20,7 +20,7 @@ actually means.
 
 [BEAT 2 - INVESTOR PASS EMAIL]
 
-Now an investor rejection. Peak Ventures, passing after a first call.
+Now an investor rejection. Pass Ventures, passing after a first call.
 
 Every VC pass follows the same structure. Compliment the team. Blame the portfolio.
 End with "stay in touch."
@@ -32,6 +32,8 @@ moment it reads the subject line.
 
 And this line from the decoded section: "You seem smart, but smart doesn't write
 checks."
+
+<break time="1.5s"/>
 
 Subtext works on more than email. Point it at any job posting.
 
@@ -60,5 +62,7 @@ recorder.
 
 For our company that means client education, sales demos, and product walkthroughs -
 built automatically, any time something ships.
+
+<break time="1.5s"/>
 
 Point it at code. Get a video.
