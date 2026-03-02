@@ -1,3 +1,7 @@
+# Subtext Demo — Voiceover Script v3
+
+---
+
 Ever wanted to filter out the corporate BS?
 
 The performance review that said "reset moment" and meant you are going on a PIP.
@@ -6,7 +10,11 @@ The job posting that said "fast-paced environment" and meant understaffed and ch
 
 Introducing Subtext. A Chrome extension that reads between the lines.
 
-[BEAT 1 - PERFORMANCE REVIEW EMAIL]
+---
+
+## Beat 1 — Performance Review Email
+
+*(1.5s silence)*
 
 This is a manager feedback email. Warm opener. Then a 60-day alignment plan.
 
@@ -18,7 +26,11 @@ Paola, you're on a PIP. They just renamed it to save your feelings.
 And here is the honest rewrite. No hedging. No alignment plan. Just what this email
 actually means.
 
-[BEAT 2 - INVESTOR PASS EMAIL]
+---
+
+## Beat 2 — Investor Pass Email
+
+*(1.5s silence)*
 
 Now an investor rejection. Peak Ventures, passing after a first call.
 
@@ -35,14 +47,22 @@ checks."
 
 Subtext works on more than email. Point it at any job posting.
 
-[BEAT 3 - DOORDASH JOB POSTING]
+---
+
+## Beat 3 — DoorDash Job Posting
+
+*(1.5s silence)*
 
 DoorDash. Manager, Marketplace, New Bets, Strategy and Operations. The title alone
 is doing a lot of work.
 
 Subtext is reading every word right now.
 
-[OUTRO]
+---
+
+## Outro
+
+*(1.5s silence)*
 
 72 percent. Startup grind, corporate pay ceiling, manager title doing founder work.
 

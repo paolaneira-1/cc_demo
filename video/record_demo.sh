@@ -80,19 +80,28 @@ sleep 2
 # Step 4: Generate voiceover if missing
 # ----------------------------------------------------------------
 echo ""
-echo "Step 4: Combining video + voiceover..."
+echo "Step 4: Checking voiceover..."
 
-echo "Generating voiceover with ElevenLabs (Sarah voice, script v3)..."
-VOICEOVER_TEXT=$(sed '/^\[BEAT/d; /^\[REAL WORLD/d; /^\[OUTRO/d' \
-  "$VIDEO_DIR/../voiceover_script_v3.txt" | \
-  tr '\n' ' ' | sed 's/  */ /g; s/^ //; s/ $//')
+if [ -f "$VOICEOVER" ] && [ -s "$VOICEOVER" ]; then
+  echo "Voiceover already exists — skipping ElevenLabs generation."
+  echo "  (Delete $VOICEOVER to regenerate)"
+else
+  echo "Generating voiceover with ElevenLabs (Sarah voice, script v3)..."
+  # Replace scene/outro markers with SSML pauses instead of deleting them,
+  # so ElevenLabs inserts natural silence at each transition.
+  VOICEOVER_TEXT=$(sed \
+    's/^\[BEAT[^]]*\]/<break time="1.5s"\/>/; s/^\[OUTRO\]/<break time="1.5s"\/>/; /^\[REAL WORLD/d' \
+    "$VIDEO_DIR/../voiceover_script_v3.txt" | \
+    tr '\n' ' ' | sed 's/  */ /g; s/^ //; s/ $//')
+  VOICEOVER_TEXT="<speak>${VOICEOVER_TEXT}</speak>"
 
-python3 -c "
+  python3 -c "
 import json, sys
 text = sys.stdin.read().strip()
 payload = {
     'text': text,
     'model_id': 'eleven_multilingual_v2',
+    'enable_ssml_parsing': True,
     'voice_settings': {
         'stability': 0.40,
         'similarity_boost': 0.75,
@@ -102,13 +111,14 @@ payload = {
 }
 print(json.dumps(payload))
 " <<< "$VOICEOVER_TEXT" | \
-curl -s -X POST "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL" \
-  -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
-  -H "Content-Type: application/json" \
-  -H "Accept: audio/mpeg" \
-  -d @- \
-  -o "$VOICEOVER"
-echo "Voiceover generated: $VOICEOVER"
+  curl -s -X POST "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL" \
+    -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: audio/mpeg" \
+    -d @- \
+    -o "$VOICEOVER"
+  echo "Voiceover generated: $VOICEOVER"
+fi
 
 # ----------------------------------------------------------------
 # Step 5: Combine video + voiceover
